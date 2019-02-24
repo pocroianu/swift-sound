@@ -125,27 +125,6 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy {
                 // Update the config
                 this._fuseConfigService.config = config;
             });
-
-        // Add customize nav item that opens the bar programmatically
-        const customFunctionNavItem = {
-            'id': 'custom-function',
-            'title': 'Custom Function',
-            'type': 'group',
-            'icon': 'settings',
-            'children': [
-                {
-                    'id': 'customize',
-                    'title': 'Customize',
-                    'type': 'item',
-                    'icon': 'settings',
-                    'function': () => {
-                        this.toggleSidebarOpen('themeOptionsPanel');
-                    }
-                }
-            ]
-        };
-
-        this._fuseNavigationService.addNavigationItem(customFunctionNavItem, 'end');
     }
 
     /**
@@ -203,13 +182,13 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy {
                             background: 'fuse-white-500',
                             customBackgroundColor: false,
                             hidden: false,
-                            position: 'below-static'
+                            position: 'below-configuration'
                         },
                         footer: {
                             background: 'fuse-navy-900',
                             customBackgroundColor: true,
                             hidden: false,
-                            position: 'below-static'
+                            position: 'below-configuration'
                         },
                         sidepanel: {
                             hidden: false,
@@ -273,13 +252,13 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy {
                             background: 'fuse-white-500',
                             customBackgroundColor: false,
                             hidden: false,
-                            position: 'above-static'
+                            position: 'above-configuration'
                         },
                         footer: {
                             background: 'fuse-navy-900',
                             customBackgroundColor: true,
                             hidden: false,
-                            position: 'above-static'
+                            position: 'above-configuration'
                         },
                         sidepanel: {
                             hidden: false,

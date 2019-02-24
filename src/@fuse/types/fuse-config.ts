@@ -16,13 +16,13 @@ export interface FuseConfig {
             customBackgroundColor: boolean,
             background: string,
             hidden: boolean,
-            position: 'above' | 'above-static' | 'above-fixed' | 'below' | 'below-static' | 'below-fixed'
+            position: 'above' | 'above-configuration' | 'above-fixed' | 'below' | 'below-configuration' | 'below-fixed'
         }
         footer: {
             customBackgroundColor: boolean,
             background: string,
             hidden: boolean,
-            position: 'above' | 'above-static' | 'above-fixed' | 'below' | 'below-static' | 'below-fixed'
+            position: 'above' | 'above-configuration' | 'above-fixed' | 'below' | 'below-configuration' | 'below-fixed'
         },
         sidepanel: {
             hidden: boolean,

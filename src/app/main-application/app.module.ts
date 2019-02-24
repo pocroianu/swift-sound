@@ -10,24 +10,28 @@ import 'hammerjs';
 
 import {FuseModule} from '@fuse/fuse.module';
 import {FuseSharedModule} from '@fuse/shared.module';
-import {FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule} from '@fuse/components';
+import {FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule} from '@fuse/components/index';
 
-import {fuseConfig} from 'app/fuse-config';
+import {fuseConfig} from 'app/fuse-config/index';
 
-import {AppComponent} from 'app/app.component';
+import {AppComponent} from 'app/main-application/app.component';
 import {LayoutModule} from 'app/layout/layout.module';
-import {SampleModule} from 'app/main/sample/sample.module';
+import { HomeComponent } from '../components/home/home.component';
+import { StreamComponent } from '../components/stream/stream.component';
+import { LibraryComponent } from '../components/library/library.component';
+import {Configuration} from '../configuration/configuration';
+import {HomeModule} from '../components/home/home.module';
+import {LibraryModule} from '../components/library/library.module';
+import {StreamModule} from '../components/stream/stream.module';
 
-const appRoutes: Routes = [
-    {
-        path: '**',
-        redirectTo: 'sample'
-    }
-];
+const appRoutes: Routes = Configuration.AppRoutes;
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent,
+        StreamComponent,
+        LibraryComponent
     ],
     imports: [
         BrowserModule,
@@ -53,7 +57,9 @@ const appRoutes: Routes = [
 
         // App modules
         LayoutModule,
-        SampleModule
+        HomeModule,
+        LibraryModule,
+        StreamModule
     ],
     bootstrap: [
         AppComponent

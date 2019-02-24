@@ -33,21 +33,21 @@
             <div id="container-3" class="container" fusePerfectScrollbar
                  [fusePerfectScrollbarOptions]="{suppressScrollX: true, updateOnRouteChange : true}">
 
-                <!-- TOOLBAR: Below static -->
+                <!-- TOOLBAR: Below configuration -->
                 <ng-container *ngIf="fuseConfig.layout.toolbar.position === 'below-static'">
                     <ng-container *ngTemplateOutlet="toolbar"></ng-container>
                 </ng-container>
-                <!-- / TOOLBAR: Below static -->
+                <!-- / TOOLBAR: Below configuration -->
 
                 <!-- CONTENT -->
                 <content></content>
                 <!-- / CONTENT -->
 
-                <!-- FOOTER: Below static -->
+                <!-- FOOTER: Below configuration -->
                 <ng-container *ngIf="fuseConfig.layout.footer.position === 'below-static'">
                     <ng-container *ngTemplateOutlet="footer"></ng-container>
                 </ng-container>
-                <!-- / FOOTER: Below static -->
+                <!-- / FOOTER: Below configuration -->
 
             </div>
 
