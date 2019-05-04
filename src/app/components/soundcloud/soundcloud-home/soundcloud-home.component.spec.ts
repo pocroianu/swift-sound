@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SoundcloudComponent } from './soundcloud.component';
+import { SoundcloudHomeComponent } from './soundcloud-home.component';
 
-describe('SoundcloudComponent', () => {
-  let component: SoundcloudComponent;
-  let fixture: ComponentFixture<SoundcloudComponent>;
+describe('SoundcloudHomeComponent', () => {
+  let component: SoundcloudHomeComponent;
+  let fixture: ComponentFixture<SoundcloudHomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SoundcloudComponent ]
+      declarations: [ SoundcloudHomeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SoundcloudComponent);
+    fixture = TestBed.createComponent(SoundcloudHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

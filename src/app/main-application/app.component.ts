@@ -12,8 +12,6 @@ import {FuseSplashScreenService} from '@fuse/services/splash-screen.service';
 import {FuseTranslationLoaderService} from '@fuse/services/translation-loader.service';
 
 import {navigation} from 'app/configuration/navigation/navigation';
-import {locale as navigationEnglish} from 'app/configuration/navigation/i18n/en';
-import {locale as navigationTurkish} from 'app/configuration/navigation/i18n/tr';
 import {SoundCloudService} from '../services/soundcloud-service/soundcloud.service';
 
 @Component({
@@ -67,8 +65,6 @@ export class AppComponent implements OnInit, OnDestroy {
         // Set the default language
         this._translateService.setDefaultLang('en');
 
-        // Set the navigation translations
-        this._fuseTranslationLoaderService.loadTranslations(navigationEnglish, navigationTurkish);
 
         // Use a language
         this._translateService.use('en');

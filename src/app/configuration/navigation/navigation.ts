@@ -4,9 +4,23 @@ export const navigation: FuseNavigation[] = [
     {
         id: 'soundcloud',
         title: 'Soundcloud',
-        type: 'item',
+        type: 'collapsable',
+        children: [
+            {
+                id: 'soundcloud-home',
+                title: 'Soundcloud_Home',
+                type: 'item',
+                url: '/soundcloud-home'
+            },
+            {
+                id: 'soundcloud-favourites',
+                title: 'Soundcloud-favourites',
+                type: 'item',
+                url: '/soundcloud-favourites'
+            }
+        ],
         // icon: 'home',
-        url: '/soundcloud'
+        url: '/soundcloud-home'
     },
     {
         id: 'spotify',

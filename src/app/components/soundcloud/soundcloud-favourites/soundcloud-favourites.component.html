@@ -1,0 +1,45 @@
+<div class="content">
+
+    <div fxLayout="column" fxLayoutAlign="space-evenly stretch">
+
+        <div fxLayout="row "
+             *ngFor="let song of favouriteTracks"
+             class="element">
+
+            <!--Card----------------------------------------------------------------->
+            <div class="fuse-card indigo w-700" >
+
+                <div class="p-16" fxLayout="row" fxLayoutAlign="space-between center">
+
+                    <div class="pr-16">
+                        <div class="h3 secondary-text">{{song.title}}</div>
+                    </div>
+
+                    <div class="w-80 h-80">
+                        <img src="{{song.artwork_url}}" alt="album_art">
+                    </div>
+
+                </div>
+
+
+
+                <div class="p-8 pt-0" fxLayout="row" fxLayoutAlign="start center">
+                    <button mat-button color="primary"
+                            (click)="playSong(song.uri)">
+                        PLAY
+                    </button>
+
+                    <button mat-button color="primary"
+                            (click)="pause()">
+                        PAUSE</button>
+                </div>
+
+            </div>
+            <!--/Card-------------------------------------------------------------------->
+
+        </div>
+
+
+    </div>
+
+</div>

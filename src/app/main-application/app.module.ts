@@ -21,11 +21,13 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { SpotifyComponent } from '../components/spotify/spotify.component';
 import { MixcloudComponent } from '../components/mixcloud/mixcloud.component';
 import { BandcampComponent } from '../components/bandcamp/bandcamp.component';
-import { SoundcloudComponent } from '../components/soundcloud/soundcloud.component';
-import {SoundcloudModule} from '../components/soundcloud/soundcloud.module';
 import {SpotifyModule} from '../components/spotify/spotify.module';
 import {MixcloudModule} from '../components/mixcloud/mixcloud.module';
 import {BandcampModule} from '../components/bandcamp/bandcamp.module';
+import { SoundcloudHomeComponent } from '../components/soundcloud/soundcloud-home/soundcloud-home.component';
+import {SoundcloudHomeModule} from '../components/soundcloud/soundcloud-home/soundcloud-home.module';
+import {SoundcloudFavouritesModule} from '../components/soundcloud/soundcloud-favourites/soundcloud-favourites.module';
+import {SoundcloudFavouritesComponent} from '../components/soundcloud/soundcloud-favourites/soundcloud-favourites.component';
 
 const appRoutes: Routes = Configuration.AppRoutes;
 
@@ -35,7 +37,8 @@ const appRoutes: Routes = Configuration.AppRoutes;
         SpotifyComponent,
         MixcloudComponent,
         BandcampComponent,
-        SoundcloudComponent
+        SoundcloudHomeComponent,
+        SoundcloudFavouritesComponent
     ],
     imports: [
         BrowserModule,
@@ -65,10 +68,11 @@ const appRoutes: Routes = Configuration.AppRoutes;
 
         // App Components modules
         LayoutModule,
-        SoundcloudModule,
         SpotifyModule,
         MixcloudModule,
-        BandcampModule
+        BandcampModule,
+        SoundcloudHomeModule,
+        SoundcloudFavouritesModule
     ],
     bootstrap: [
         AppComponent,

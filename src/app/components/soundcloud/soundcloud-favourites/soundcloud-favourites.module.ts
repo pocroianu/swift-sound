@@ -1,14 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {SoundcloudComponent} from './soundcloud.component';
+import {SoundcloudFavouritesComponent} from './soundcloud-favourites.component';
 import {RouterModule} from '@angular/router';
 
 const routes = [
     {
-        path: 'soundcloud',
-        component: SoundcloudComponent
+        path: 'soundcloud-favourites',
+        component: SoundcloudFavouritesComponent
     }
 ];
+
 
 @NgModule({
     declarations: [],
@@ -17,5 +18,5 @@ const routes = [
         RouterModule.forChild(routes)
     ]
 })
-export class SoundcloudModule {
+export class SoundcloudFavouritesModule {
 }

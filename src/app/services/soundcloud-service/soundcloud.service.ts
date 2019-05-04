@@ -4,6 +4,10 @@ import {Track} from '../../interfaces/Interfaces';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {Configuration} from '../../configuration/configuration';
+// RxJS v6+
+import {from} from 'rxjs';
+import {of} from 'rxjs';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 const SoundCloud = require('soundcloud');
 
@@ -22,6 +26,7 @@ export class SoundCloudService {
 
     public defaultTracks: Observable<Array<Track>>;
     public favouriteTracks: Observable<Array<Track>>;
+    public favouriteTracks2: Array<Track>;
     public playlists: Observable<any>;
 
     /**
@@ -52,7 +57,6 @@ export class SoundCloudService {
         SoundCloud.get('tracks?client_id=' + SoundCloudStatic.ClientID)
             .then((content) => {
                 this.defaultTracks = content;
-                console.log(content);
             })
             .catch((error) => {
                 console.log('Error -> tracks not returned');
@@ -64,6 +68,14 @@ export class SoundCloudService {
      */
     private initializeFavouriteTracks(): void {
 
+        this.favouriteTracks2= [];
+
+        for (let favouritetrackURL of SoundCloudStatic.SoundCloudFavouriteTracksURLs) {
+            // favouriteTracks.push(SoundCloud.resolve(favouritetrackURL));
+            SoundCloud.resolve(favouritetrackURL).then((track: Track) => {
+                this.favouriteTracks2.push(track);
+            });
+        }
     }
 
     /**
@@ -75,7 +87,7 @@ export class SoundCloudService {
     }
 
     /**
-     * Returns
+     * Returns the default tracks observable
      */
     public getDefaultTracks(): any {
         const tracksObservable = new Observable(observer => {
@@ -86,10 +98,13 @@ export class SoundCloudService {
         return tracksObservable;
     }
 
+    /**
+     * Returns the favourite tracks observable
+     */
     public getFavouriteTracks(): any {
         const tracksObservable = new Observable(observer => {
             setTimeout(() => {
-                observer.next(this.favouriteTracks);
+                observer.next(this.favouriteTracks2);
             }, 1000);
         });
         return tracksObservable;
@@ -109,10 +124,9 @@ export class SoundCloudService {
 
 
     /**
-     * This will play a song based on an id
+     * This will play a song based on an url
      */
-    public playSong(index: number): void {
-        let track_url = (<Track>this.defaultTracks[index]).uri;
+    public playSong(track_url:string): void {
         console.log(track_url);
 
         var playSong = (track) => {

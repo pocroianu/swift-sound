@@ -10,8 +10,12 @@ export class Configuration {
      */
     public static AppRoutes: Routes = [
         {
-            path: 'soundcloud',
-            loadChildren: '../components/soundcloud/soundcloud.module#SoundcloudModule'
+            path: 'soundcloud-home',
+            loadChildren: '../components/soundcloud/soundcloud-home/soundcloud-home.module#SoundcloudHomeModule'
+        },
+        {
+            path: 'soundcloud-favourites',
+            loadChildren: '../components/soundcloud/soundcloud-favourites/soundcloud-favourites.module#SoundcloudFavouritesModule'
         },
         {
             path: 'spotify',

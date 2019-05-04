@@ -6,7 +6,7 @@ export class SoundCloudStatic {
     /**This is my client id that I will be using to connect to the SoundCloud SDK */
     public static ClientID: string = 'ZlszkiBH5xW8a8131srowVikrbbWTuug';
     public static SoundCloudServiceStartedMessage: string = 'SoundCloudService started';
-    public static SoundCloudFavouriteSongs: Array<string> = [
+    public static SoundCloudFavouriteTracksURLs: Array<string> = [
         'https://soundcloud.com/micallen864/mike-allen-king',
         'https://soundcloud.com/officialfriction/allnite',
         'https://soundcloud.com/netsky/rio',
