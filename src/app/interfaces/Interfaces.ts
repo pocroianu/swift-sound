@@ -1,0 +1,52 @@
+export class Track {
+
+    public artwork_url;
+    public attachments_uri: string;
+    public bpm;
+    public comment_count: number;
+    public commentable: boolean;
+    public created_at: string;
+    public description: string;
+    public download_count: number;
+    public downloadable: false;
+    public duration: number;
+    public embeddable_by: string;
+    public favoritings_count: number;
+    public genre: string;
+    public id: number;
+    public isrc;
+    public key_signature;
+    public kind: string;
+    public label_id;
+    public label_name;
+    public last_modified: string;
+    public license: string;
+    public likes_count: number;
+    public monetization_model: string;
+    public original_content_size: number;
+    public original_format: string;
+    public permalink: string;
+    public permalink_url: string;
+    public playback_count: number;
+    public policy: string;
+    public purchase_title;
+    public purchase_url;
+    public release;
+    public release_day;
+    public release_month;
+    public release_year;
+    public reposts_count: number;
+    public sharing: string;
+    public state: string;
+    public stream_url: string;
+    public streamable: true;
+    public tag_list;
+    public title: string;
+    public track_type;
+    public uri: string;
+    public user: Object;
+    public user_id: number;
+    public video_url;
+    public waveform_url;
+
+}

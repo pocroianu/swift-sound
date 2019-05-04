@@ -11,9 +11,10 @@ import {FuseSidebarService} from '@fuse/components/sidebar/sidebar.service';
 import {FuseSplashScreenService} from '@fuse/services/splash-screen.service';
 import {FuseTranslationLoaderService} from '@fuse/services/translation-loader.service';
 
-import {navigation} from 'app/navigation/navigation';
-import {locale as navigationEnglish} from 'app/navigation/i18n/en';
-import {locale as navigationTurkish} from 'app/navigation/i18n/tr';
+import {navigation} from 'app/configuration/navigation/navigation';
+import {locale as navigationEnglish} from 'app/configuration/navigation/i18n/en';
+import {locale as navigationTurkish} from 'app/configuration/navigation/i18n/tr';
+import {SoundCloudService} from '../services/soundcloud-service/soundcloud.service';
 
 @Component({
     selector: 'app',
@@ -38,6 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
      * @param {FuseTranslationLoaderService} _fuseTranslationLoaderService
      * @param {Platform} _platform
      * @param {TranslateService} _translateService
+     * @param _soundcloudService
      */
     constructor(
         @Inject(DOCUMENT) private document: any,
@@ -47,7 +49,8 @@ export class AppComponent implements OnInit, OnDestroy {
         private _fuseSplashScreenService: FuseSplashScreenService,
         private _fuseTranslationLoaderService: FuseTranslationLoaderService,
         private _translateService: TranslateService,
-        private _platform: Platform
+        private _platform: Platform,
+        private _soundcloudService : SoundCloudService
     ) {
         // Get default navigation
         this.navigation = navigation;

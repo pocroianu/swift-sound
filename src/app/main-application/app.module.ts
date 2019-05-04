@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
-import {MatButtonModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatCardModule, MatTabsModule} from '@angular/material';
 import {TranslateModule} from '@ngx-translate/core';
 import 'hammerjs';
 
@@ -12,26 +12,30 @@ import {FuseModule} from '@fuse/fuse.module';
 import {FuseSharedModule} from '@fuse/shared.module';
 import {FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule} from '@fuse/components/index';
 
-import {fuseConfig} from 'app/fuse-config/index';
+import {fuseConfig} from '../configuration/fuse-config';
 
 import {AppComponent} from 'app/main-application/app.component';
-import {LayoutModule} from 'app/layout/layout.module';
-import { HomeComponent } from '../components/home/home.component';
-import { StreamComponent } from '../components/stream/stream.component';
-import { LibraryComponent } from '../components/library/library.component';
+import {LayoutModule} from 'app/configuration/layout/layout.module';
 import {Configuration} from '../configuration/configuration';
-import {HomeModule} from '../components/home/home.module';
-import {LibraryModule} from '../components/library/library.module';
-import {StreamModule} from '../components/stream/stream.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { SpotifyComponent } from '../components/spotify/spotify.component';
+import { MixcloudComponent } from '../components/mixcloud/mixcloud.component';
+import { BandcampComponent } from '../components/bandcamp/bandcamp.component';
+import { SoundcloudComponent } from '../components/soundcloud/soundcloud.component';
+import {SoundcloudModule} from '../components/soundcloud/soundcloud.module';
+import {SpotifyModule} from '../components/spotify/spotify.module';
+import {MixcloudModule} from '../components/mixcloud/mixcloud.module';
+import {BandcampModule} from '../components/bandcamp/bandcamp.module';
 
 const appRoutes: Routes = Configuration.AppRoutes;
 
 @NgModule({
     declarations: [
         AppComponent,
-        HomeComponent,
-        StreamComponent,
-        LibraryComponent
+        SpotifyComponent,
+        MixcloudComponent,
+        BandcampComponent,
+        SoundcloudComponent
     ],
     imports: [
         BrowserModule,
@@ -47,6 +51,8 @@ const appRoutes: Routes = Configuration.AppRoutes;
         // Material
         MatButtonModule,
         MatIconModule,
+        MatCardModule,
+        MatTabsModule,
 
         // Fuse modules
         FuseModule.forRoot(fuseConfig),
@@ -55,14 +61,18 @@ const appRoutes: Routes = Configuration.AppRoutes;
         FuseSidebarModule,
         FuseThemeOptionsModule,
 
-        // App modules
+        FlexLayoutModule,
+
+        // App Components modules
         LayoutModule,
-        HomeModule,
-        LibraryModule,
-        StreamModule
+        SoundcloudModule,
+        SpotifyModule,
+        MixcloudModule,
+        BandcampModule
     ],
     bootstrap: [
-        AppComponent
+        AppComponent,
+
     ]
 })
 export class AppModule {
