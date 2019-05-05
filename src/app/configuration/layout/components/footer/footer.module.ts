@@ -12,7 +12,6 @@ import {FooterComponent} from 'app/configuration/layout/components/footer/footer
     ],
     imports: [
         RouterModule,
-
         MatButtonModule,
         MatIconModule,
         MatToolbarModule,

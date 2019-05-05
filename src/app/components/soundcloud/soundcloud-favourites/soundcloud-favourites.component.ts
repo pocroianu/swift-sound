@@ -1,7 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {SoundcloudSuperclass} from '../soundcloud-superclass/soundcloud-superclass';
 import {SoundCloudService} from '../../../services/soundcloud-service/soundcloud.service';
 import {Track} from '../../../interfaces/Interfaces';
+import {MusicService} from '../../../services/music-service/music.service';
 
 @Component({
     selector: 'app-soundcloud-favourites',
@@ -9,19 +10,23 @@ import {Track} from '../../../interfaces/Interfaces';
     styleUrls: ['./soundcloud-favourites.component.scss']
 })
 
+
 /**
  *
  */
 export class SoundcloudFavouritesComponent extends SoundcloudSuperclass
     implements OnInit, OnDestroy {
 
-    public favouriteTracks:Array<Track>;
+    @Output() playUrl = new EventEmitter();
+    public favouriteTracks: Array<Track>;
 
     /**
      * @param _soundcloudService
+     * @param _musicService
      */
-    constructor(public _soundcloudService : SoundCloudService) {
-        super(_soundcloudService);
+    constructor(public _musicService: MusicService,
+                public _soundcloudService: SoundCloudService) {
+        super(_musicService);
         this._soundcloudService.getFavouriteTracks()
             .subscribe((content) => {
                 this.favouriteTracks = content;
@@ -41,6 +46,4 @@ export class SoundcloudFavouritesComponent extends SoundcloudSuperclass
     ngOnDestroy(): void {
         console.log('SoundcloudFavouritesComponent destroyed');
     }
-
-
 }

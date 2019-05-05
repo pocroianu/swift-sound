@@ -1,4 +1,5 @@
-import {SoundCloudService} from '../../../services/soundcloud-service/soundcloud.service';
+import {MusicService} from '../../../services/music-service/music.service';
+import {Track} from '../../../interfaces/Interfaces';
 
 /**
  * This is the Soundcloud abstract class
@@ -9,24 +10,24 @@ export class SoundcloudSuperclass {
 
     /**
      *
-     * @param _soundcloudService
+     * @param _musicService
      */
-    constructor(public _soundcloudService: SoundCloudService) {
+    constructor(public _musicService: MusicService) {
     }
 
 
     /**
      * Plays the song based on the desired index
      */
-    public playSong(track_url: string): void {
-        this._soundcloudService.playSong(track_url);
+    public playSong(track: Track): void {
+        this._musicService.playTrack(track);
     }
 
     /**
      * Pauses the current song
      */
     public pause(): void {
-        this._soundcloudService.pause();
+        this._musicService.pauseCurrentTrack();
     }
 
 }

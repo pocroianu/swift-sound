@@ -13,6 +13,8 @@ import {FuseTranslationLoaderService} from '@fuse/services/translation-loader.se
 
 import {navigation} from 'app/configuration/navigation/navigation';
 import {SoundCloudService} from '../services/soundcloud-service/soundcloud.service';
+import {MatIconRegistry} from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
     selector: 'app',
@@ -38,6 +40,8 @@ export class AppComponent implements OnInit, OnDestroy {
      * @param {Platform} _platform
      * @param {TranslateService} _translateService
      * @param _soundcloudService
+     * @param iconRegistry
+     * @param sanitizer
      */
     constructor(
         @Inject(DOCUMENT) private document: any,
@@ -48,8 +52,18 @@ export class AppComponent implements OnInit, OnDestroy {
         private _fuseTranslationLoaderService: FuseTranslationLoaderService,
         private _translateService: TranslateService,
         private _platform: Platform,
-        private _soundcloudService : SoundCloudService
+        private _soundcloudService: SoundCloudService,
+        private iconRegistry: MatIconRegistry,
+        private sanitizer: DomSanitizer
     ) {
+        iconRegistry.addSvgIcon(
+            'fast-forward',
+            sanitizer.bypassSecurityTrustResourceUrl('src/assets/icons/material-icons/outline-fast_forward-24px.svg'));
+        iconRegistry.addSvgIcon(
+            'play',
+            sanitizer.bypassSecurityTrustResourceUrl('src/assets/icons/material-icons/outline-play_arrow-24px.svg'));
+
+
         // Get default navigation
         this.navigation = navigation;
 
@@ -129,8 +143,7 @@ export class AppComponent implements OnInit, OnDestroy {
                 // Boxed
                 if (this.fuseConfig.layout.width === 'boxed') {
                     this.document.body.classList.add('boxed');
-                }
-                else {
+                } else {
                     this.document.body.classList.remove('boxed');
                 }
 

@@ -57,7 +57,7 @@
 
     <!-- FOOTER: Above -->
     <ng-container *ngIf="fuseConfig.layout.footer.position === 'above-fixed'">
-        <ng-container *ngTemplateOutlet="footer"></ng-container>
+        <ng-container *ngTemplateOutlet="player"></ng-container>
     </ng-container>
     <!-- FOOTER: Above -->
 
@@ -96,6 +96,11 @@
     </footer>
 </ng-template>
 <!-- / FOOTER -->
+
+<ng-template #player>
+    <player *ngIf="!fuseConfig.layout.footer.hidden">
+    </player>
+</ng-template>
 
 <!-- TOP NAVBAR -->
 <ng-template #topNavbar>

@@ -38,7 +38,7 @@ const appRoutes: Routes = Configuration.AppRoutes;
         MixcloudComponent,
         BandcampComponent,
         SoundcloudHomeComponent,
-        SoundcloudFavouritesComponent
+        SoundcloudFavouritesComponent,
     ],
     imports: [
         BrowserModule,
@@ -72,7 +72,7 @@ const appRoutes: Routes = Configuration.AppRoutes;
         MixcloudModule,
         BandcampModule,
         SoundcloudHomeModule,
-        SoundcloudFavouritesModule
+        SoundcloudFavouritesModule,
     ],
     bootstrap: [
         AppComponent,

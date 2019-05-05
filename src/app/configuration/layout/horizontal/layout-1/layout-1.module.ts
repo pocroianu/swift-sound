@@ -11,6 +11,7 @@ import {QuickPanelModule} from 'app/configuration/layout/components/quick-panel/
 import {ToolbarModule} from 'app/configuration/layout/components/toolbar/toolbar.module';
 
 import {HorizontalLayout1Component} from 'app/configuration/layout/horizontal/layout-1/layout-1.component';
+import {PlayerModule} from '../../components/music-component/player.module';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import {HorizontalLayout1Component} from 'app/configuration/layout/horizontal/la
         FooterModule,
         NavbarModule,
         QuickPanelModule,
-        ToolbarModule
+        ToolbarModule,
+        PlayerModule
     ],
     exports: [
         HorizontalLayout1Component

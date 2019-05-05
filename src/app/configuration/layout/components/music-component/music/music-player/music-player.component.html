@@ -1,0 +1,27 @@
+<div class="player">
+
+    <div fxLayout="row" fxLayoutAlign="center center" fxFlex>
+
+        <div class="player__backward">
+            <button (click)="backward.emit()"><i class="fa fa-backward"></i></button>
+        </div>
+
+
+        <div class="player__main">
+            <button *ngIf="paused" (click)="pauseplay.emit()"><i class="fa fa-pause"></i></button>
+            <button *ngIf="!paused" (click)="pauseplay.emit()"><i class="fa fa-play"></i></button>
+            <button (click)="stop.emit()"><i class="fa fa-stop"></i></button>
+            <button (click)="random.emit()"><i class="fa fa-random"></i></button>
+        </div>
+
+
+
+        <div class="player__forward">
+            <button (click)="forward.emit()">
+                <mat-icon>fast-forward</mat-icon>
+            </button>
+
+        </div>
+
+    </div>
+</div>

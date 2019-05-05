@@ -1,0 +1,27 @@
+<mat-toolbar>
+
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex>
+
+        <music-details
+            [title]="title"
+        ></music-details>
+
+        <music-player
+            (random)="onRandomButtonPressed()"
+            (backward)="onBackwardButtonPressed()"
+            (forward)="onForwardButtonPressed()"
+            (pauseplay)="onPlayPauseButtonPressed()"
+            (stop)="onStopButtonPressed()"
+            [paused]="paused"
+        ></music-player>
+
+        <music-progress
+            [current]="position"
+            [elapsed]="elapsed"
+            [total]="duration"
+        ></music-progress>
+
+    </div>
+
+</mat-toolbar>
+
